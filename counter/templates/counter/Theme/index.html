@@ -1,3 +1,6 @@
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -51,13 +54,15 @@
             <div class="col-lg-4 col-lg-offset-4 mt centered">
 
             	<h4>LET ME KNOW WHEN YOU LAUNCH</h4>
-				<form class="form-inline" role="form" action="/thanks/" method="post">
+				<form action="/thanks/" method="post">
                     {% csrf_token %}
-				  <div class="form-group form-control">
+				  <div class=" form-group ">
 				    <!--<label class="sr-only" for="exampleInputEmail2">Email address</label>-->
-				    {{ form.email }}
+				    {% bootstrap_form form layout='inline'%}
 				  </div>
+                    {% buttons %}
 				  <button type="submit" class="btn btn-info">Submit</button>
+                    {% endbuttons %}
 				</form>            
 			</div>
         {% endif %}
